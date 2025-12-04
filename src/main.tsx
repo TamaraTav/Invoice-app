@@ -10,6 +10,8 @@ import Invoices from "./pages/Invoices";
 import InvoiceProvider from "./contexts/InvoiceContext";
 import Invoice from "./pages/Invoice";
 import InvoiceEdit from "./pages/InvoiceEdit";
+import ThemeProvider from "./contexts/ThemeContext";
+import Container from "./components/Container";
 
 const router = createBrowserRouter([
   {
@@ -32,8 +34,11 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <InvoiceProvider>
-      <RouterProvider router={router} />
-    </InvoiceProvider>
+    <ThemeProvider>
+      <InvoiceProvider>
+        <Container />
+        <RouterProvider router={router} />
+      </InvoiceProvider>
+    </ThemeProvider>
   </React.StrictMode>
 );
